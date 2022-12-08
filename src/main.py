@@ -2,28 +2,31 @@ from os import system
 from menu import main_menu
 from intro import intro_printout
 
+# Variable to handle start and stopping for main menu loop
+start_stop = True
 
-menu_option = ""
 # Main menu loop
-while menu_option != "5":
+while start_stop == True:
     system("clear")
+    
     menu_option = main_menu()
     system("clear")
-    if menu_option == "1":
+
+    if menu_option == 1:
         print(intro_printout())
         input("Press Enter to return:")
-    elif menu_option == "2":
+    elif menu_option == 2:
         print("Create haiku page")
         input("Press Enter to return:")
-    elif menu_option == "3":
+    elif menu_option == 3:
         print("Saved files")
         input("Press Enter to return:")
-    elif menu_option == "4":
+    elif menu_option == 4:
         print("jumbler")
         input("Press Enter to return:")
-    elif menu_option == "5":
+    elif menu_option == 5:
         print("Exits program!")
-        input("Press Enter to return:")
+        start_stop = False
     else:
         print("Sorry not a valid input, please select from the options")
         input("Press Enter to return:")

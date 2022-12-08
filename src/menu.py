@@ -7,5 +7,13 @@ def main_menu():
     print("3: Saved Files")
     print("4: Jumbler")
     print("5: Quit")
-    main_option = input("Select menu option (1-5): ")
+    
+    while True:
+        try:
+            main_option = int(input("Select menu option (1-5): "))
+            break      
+        except ValueError:
+            print("Incorrect input, please try again")
+
+
     return main_option
