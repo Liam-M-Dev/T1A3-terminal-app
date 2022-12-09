@@ -15,7 +15,7 @@ while start_stop == True:
     system("clear")
 
     if menu_option == 1:
-        print(intro_printout())
+        intro_printout()
         input("Press Enter to return:")
     elif menu_option == 2:
         print("Create haiku page")

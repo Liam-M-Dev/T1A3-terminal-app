@@ -21,6 +21,5 @@ def intro_printout():
     the selected file!
     """
 
-    return intro_text
+    print(intro_text) 
 
-print(intro_printout())
