@@ -5,10 +5,12 @@ from intro import intro_printout
 # Variable to handle start and stopping for main menu loop
 start_stop = True
 
-# Main menu loop
+# Loop for program start, access main menu function from menu.py
+# User input converted to int to select from menu.
+# Option 5 exits loop by changing start_stop to False
 while start_stop == True:
     system("clear")
-    
+
     menu_option = main_menu()
     system("clear")
 
