@@ -1,6 +1,8 @@
 from os import system
-from menu import main_menu
+from pprint import pprint
+import menu
 from intro import intro_printout
+
 
 # Variable to handle start and stopping for main menu loop
 start_stop = True
@@ -11,15 +13,22 @@ start_stop = True
 while start_stop == True:
     system("clear")
 
-    menu_option = main_menu()
+    menu_option = menu.main_menu()
     system("clear")
 
     if menu_option == 1:
         intro_printout()
         input("Press Enter to return:")
     elif menu_option == 2:
-        print("Create haiku page")
-        input("Press Enter to return:")
+        while True:
+            user_input = menu.create_old()
+            if user_input == 1:
+                menu.new_haiku()
+            elif user_input == 2:
+                pass
+            else:
+                print("please choose 1 or 2:")
+                input("Press Enter to return:")
     elif menu_option == 3:
         print("Saved files")
         input("Press Enter to return:")
