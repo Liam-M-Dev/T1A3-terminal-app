@@ -14,7 +14,10 @@ def haiku_creator():
     poem["line_two"] = seven_syllable_line()
     poem["line_three"] = five_syllable_line()
     
-    print(f"{poem_title} {poem['line_one']} {poem['line_two']} {poem['line_three']}")
+    print(f"Title: {poem_title}\n"  
+            + f"{poem['line_one']}\n" 
+            + f"{poem['line_two']}\n" 
+            + f"{poem['line_three']}")
     return poem
 
 # Function called to use syllapy module to count syllables
@@ -29,8 +32,11 @@ def five_syllable_line():
     while True:
         user_input = input("Enter line: ")
         line_count = syllable_counter(user_input)
-        if line_count < 5 or line_count > 5:
-            print("Incorrect amount of syllables, try again")
+        print(line_count)
+        if line_count < 5:
+            print(f"Not enough syllables, syllable count{line_count}")
+        elif line_count > 5:
+            print(f"Too many syllables, syllable count{line_count}")
         else:
             return user_input
 
@@ -40,9 +46,9 @@ def seven_syllable_line():
     while True:
         user_input = input("Enter line: ")
         line_count = syllable_counter(user_input)
-        if line_count < 7 or line_count > 7:
-            print("Incorrect amount of syllables, try again")
+        if line_count < 7:
+            print(f"Not enough syllables, syllable count{line_count}")
+        elif line_count > 7:
+            print(f"too many syllables, syllable count{line_count}")
         else:
             return user_input
-
-

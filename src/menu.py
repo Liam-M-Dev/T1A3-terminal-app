@@ -36,7 +36,7 @@ def create_old():
 
 def confirmation():
     confirm = input(" y or n: ")
-    return confirm.toLower()
+    return confirm
 
 
 # Haiku menu options
@@ -44,17 +44,12 @@ def new_haiku():
     haiku_loop = True
     while haiku_loop == True:
         generate_poem = haiku_creator()
+        print("Would you like to save poem?")
         save_to_new = confirmation()
         if save_to_new == "y":
             create_file(generate_poem)
-            make_another = "n"
-            while make_another == "n":
-                make_another = input("Would you like to make another, y or n: ")
-                if make_another == "y":
-                    break
-                if make_another == "n":
-                    haiku_loop = False
+            haiku_loop = False
         elif save_to_new == "n":
-            pass
+            break
         else:
             print("incorrect input please type y or n: ")

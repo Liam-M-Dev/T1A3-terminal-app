@@ -20,15 +20,14 @@ while start_stop == True:
         intro_printout()
         input("Press Enter to return:")
     elif menu_option == 2:
-        while True:
-            user_input = menu.create_old()
-            if user_input == 1:
-                menu.new_haiku()
-            elif user_input == 2:
-                pass
-            else:
-                print("please choose 1 or 2:")
-                input("Press Enter to return:")
+        user_input = menu.create_old()
+        if user_input == 1:
+            menu.new_haiku()
+        elif user_input == 2:
+            pass
+        else:
+            print("please choose 1 or 2:")
+            input("Press Enter to return:")
     elif menu_option == 3:
         print("Saved files")
         input("Press Enter to return:")
