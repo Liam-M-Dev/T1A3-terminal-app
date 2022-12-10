@@ -2,8 +2,10 @@ import json
 import os
 
 def create_file(haiku):
-    # Initiate path to save file to
-    save_path = directory_check("./saved_files")
+    # Initiate path to save file, check if path exists
+    save_path = "./saved_files"
+    if os.path.isdir(save_path) == False:
+        os.mkdir(save_path)
     # Generate user input for file name
     translation_table = dict.fromkeys(map(ord, "!@#$ "), None)
     # While loop to prevent user from entering an empty string
@@ -15,20 +17,15 @@ def create_file(haiku):
             break
 
     file_name = file_name.translate(translation_table) + ".json"
-    full_path = save_path + file_name
+    full_path = save_path + "/" + file_name
     print(full_path)
     with open(full_path, 'w') as file:
           json.dump(haiku, file, indent=4)
 
 
-
-def directory_check(dir):
-    """Function to check directory exists, if directory
-       Doesn't exist then creates directory"""
-    if os.path.isdir(dir):
-        return dir
-    else:
-        os.mkdir(dir)
-        return dir
-        
+def list_of_files():
+    print(os.listdir("./saved_files"))
+    user_selection = input("Enter the name of a file you want: ")
+    
+    return user_selection
         
