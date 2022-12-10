@@ -17,3 +17,8 @@ def main_menu():
 
 
     return main_option
+
+
+def create_old():
+    print("1: Create new file")
+    print("2: Open file to save into")
