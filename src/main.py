@@ -1,5 +1,4 @@
 from os import system
-from pprint import pprint
 import json
 import menu
 import file_system
@@ -33,7 +32,7 @@ while start_stop == True:
             try:
                 file_system.load_appends(file_path, poem)
             except json.decoder.JSONDecodeError:
-                print("Oh no there's no poems in this file")
+                print("Oh no there's no poems in this file to add to")
                 input("Press enter to return to the menu") 
         else:
             print("please choose 1 or 2:")

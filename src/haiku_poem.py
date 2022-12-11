@@ -34,9 +34,11 @@ def five_syllable_line():
         line_count = syllable_counter(user_input)
         print(line_count)
         if line_count < 5:
-            print(f"Not enough syllables, syllable count{line_count}")
+            user_input = f"Not enough syllables, syllable count {line_count}"
+            print(user_input)
         elif line_count > 5:
-            print(f"Too many syllables, syllable count{line_count}")
+            user_input = f"Too many syllables, syllable count {line_count}"
+            print(user_input)
         else:
             return user_input
 
@@ -47,8 +49,10 @@ def seven_syllable_line():
         user_input = input("Enter line: ")
         line_count = syllable_counter(user_input)
         if line_count < 7:
-            print(f"Not enough syllables, syllable count{line_count}")
+            user_input = f"Not enough syllables, syllable count {line_count}"
+            print(user_input)
         elif line_count > 7:
-            print(f"too many syllables, syllable count{line_count}")
+            user_input = f"Too many syllables, syllable count {line_count}"
+            print(user_input)
         else:
             return user_input

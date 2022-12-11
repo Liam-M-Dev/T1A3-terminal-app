@@ -1,14 +1,17 @@
 import json
 import os
 
+# Checks for saved files directory
+# If directory doesn't exist, function creates the directory
 def directory_path():
     save_path = "./saved_files"
     if os.path.isdir(save_path) == False:
         os.mkdir(save_path)
     return save_path
 
+# Function to create save file path and write haiku into file
 def create_file(path, haiku):
-    # Generate user input for file name
+    # Creates map of one character unicode strings
     translation_table = dict.fromkeys(map(ord, "!@#$ "), None)
     # While loop to prevent user from entering an empty string
     while True:
@@ -17,14 +20,18 @@ def create_file(path, haiku):
             print("file name cannot be an empty string!")
         else:
             break
-
+    
+    # compares user input file name with mapped unicode strings
+    # removes any invalid characters for the file name
+    # adds .json to the end to create .json file
     file_name = file_name.translate(translation_table) + ".json"
     full_path = path + "/" + file_name
     print(full_path)
     with open(full_path, "w") as file:
           json.dump(haiku, file, indent=4)
 
-
+# Function to print files to user
+# Giving the user the option to choose file they wish to work on
 def list_of_files(directory):
     """Prints list of files in directory
         and checks user response is a valid file path"""
@@ -37,6 +44,8 @@ def list_of_files(directory):
         else:
             print("Sorry incorrect path, please type out file name:")
             
+
+# Loads file and converts to list to append new haiku to data
 def load_appends(file_name, haiku):
     
     data = json.load(open(file_name))

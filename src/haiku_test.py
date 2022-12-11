@@ -6,5 +6,25 @@ def test_haiku_title_returns_string():
     result = title.isalpha()
     assert result
 
-def test_five_syllable_count():
-    pass
+def test_haiku_isdict():
+    poem = {"title": "placeholder",
+            "line_one": "placeholder",
+            "line_two": "placeholder",
+            "line_three": "placeholder"}
+    assert type(poem) is dict
+
+def test_over_five():
+    line_count = 6
+    user_input = "some string with too many"
+    if line_count > 5:
+        user_input = f"Too many syllables, syllable count {line_count}"
+
+    assert user_input == f"Too many syllables, syllable count {line_count}"
+
+def test_under_five():
+    line_count = 4
+    user_input = "some string with less"
+    if line_count < 5:
+        user_input = f"Not enough syllables, syllable count {line_count}"
+
+    assert user_input == f"Not enough syllables, syllable count {line_count}"
