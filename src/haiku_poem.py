@@ -1,5 +1,6 @@
 import syllapy
-# from pprint import pprint
+import terminal
+from os import system
 
 def haiku_creator():
     poem = {}
@@ -13,11 +14,11 @@ def haiku_creator():
     poem["line_one"] = five_syllable_line()
     poem["line_two"] = seven_syllable_line()
     poem["line_three"] = five_syllable_line()
-    
+    system("clear")
     print(f"Title: {poem_title}\n"  
-            + f"{poem['line_one']}\n" 
-            + f"{poem['line_two']}\n" 
-            + f"{poem['line_three']}")
+            + f"{terminal.italic(poem['line_one'])}\n" 
+            + f"{terminal.italic(poem['line_two'])}\n" 
+            + f"{terminal.italic(poem['line_three'])}")
     return poem
 
 # Function called to use syllapy module to count syllables

@@ -9,6 +9,9 @@ from intro import intro_printout
 # Variable to handle start and stopping for main menu loop
 start_stop = True
 
+# Sets global variable for saved_files path
+save_path = file_system.directory_path()
+
 # Loop for program start, access main menu function from menu.py
 # User input converted to int to select from menu.
 # Option 5 exits loop by changing start_stop to False
@@ -26,7 +29,6 @@ while start_stop == True:
         if user_input == 1:
             menu.new_haiku()
         elif user_input == 2:
-            save_path = file_system.directory_path()
             file_path = file_system.list_of_files(save_path)
             poem = haiku_poem.haiku_creator()
             try:

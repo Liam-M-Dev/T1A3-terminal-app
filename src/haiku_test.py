@@ -1,11 +1,12 @@
 
 
-
+# Unit test to confirm title is string
 def test_haiku_title_returns_string():
     title = "placeholder"
     result = title.isalpha()
     assert result
-
+    
+# unit test to confirm poem is a dictionary
 def test_haiku_isdict():
     poem = {"title": "placeholder",
             "line_one": "placeholder",
@@ -13,6 +14,8 @@ def test_haiku_isdict():
             "line_three": "placeholder"}
     assert type(poem) is dict
 
+
+# Unit tests to confirm control systems are in place
 def test_over_five():
     line_count = 6
     user_input = "some string with too many"

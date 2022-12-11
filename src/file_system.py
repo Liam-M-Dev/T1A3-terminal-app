@@ -47,7 +47,6 @@ def list_of_files(directory):
 
 # Loads file and converts to list to append new haiku to data
 def load_appends(file_name, haiku):
-    
     data = json.load(open(file_name))
     if type(data) is dict:
         data = [data]
@@ -55,4 +54,11 @@ def load_appends(file_name, haiku):
     with open(file_name, "w") as file:
         json.dump(data, file, indent=4)
 
+def remove_file(file_name):
+    try:
+        os.remove(file_name)
+    except FileNotFoundError:
+        print("Sorry this file doesn't exist")
 
+def edit_file(file_name):
+    pass
