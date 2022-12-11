@@ -67,5 +67,7 @@ def edit_file(file_name):
 def view_file(file_name):
     with open(file_name, 'r') as file:
         data = json.load(file)
-        pprint.pp(data)
+        pprint(data, sort_dicts=False)
+
+view_file("./saved_files/sample_poems.json")
 

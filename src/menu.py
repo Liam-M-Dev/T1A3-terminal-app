@@ -34,6 +34,11 @@ def create_old():
     
     return user_input
 
+def saved_files():
+    print("1: View saved poems from a file")
+    print("2: Edit poems from a chosen file")
+    print("3: Remove a file *Caution this will delete the file*")
+
 
 def confirmation():
     confirm = input(" y or n: ")
