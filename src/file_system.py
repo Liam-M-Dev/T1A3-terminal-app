@@ -38,10 +38,12 @@ def list_of_files(directory):
             print("Sorry incorrect path, please type out file name:")
             
 def load_appends(file_name, haiku):
-    with open(file_name, "r+") as file:
-        data = json.load(file)
-        data.append(haiku)
-        file.seek(0)
-        json.dump(data, file)
+    
+    data = json.load(open(file_name))
+    if type(data) is dict:
+        data = [data]
+    data.append(haiku)
+    with open(file_name, "w") as file:
+        json.dump(data, file, indent=4)
 
 
