@@ -1,5 +1,6 @@
 import json
 import os
+from pprint import pprint
 
 # Checks for saved files directory
 # If directory doesn't exist, function creates the directory
@@ -62,3 +63,9 @@ def remove_file(file_name):
 
 def edit_file(file_name):
     pass
+
+def view_file(file_name):
+    with open(file_name, 'r') as file:
+        data = json.load(file)
+        pprint.pp(data)
+
