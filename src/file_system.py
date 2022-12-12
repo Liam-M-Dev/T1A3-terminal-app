@@ -69,5 +69,5 @@ def view_file(file_name):
         data = json.load(file)
         pprint(data, sort_dicts=False)
 
-view_file("./saved_files/sample_poems.json")
+
 

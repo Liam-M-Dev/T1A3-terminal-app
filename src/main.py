@@ -18,14 +18,16 @@ save_path = file_system.directory_path()
 while start_stop == True:
     system("clear")
 
-    menu_option = menu.main_menu()
+    menu.main_menu()
+    menu_option = menu.menu_selection()
     system("clear")
 
     if menu_option == 1:
         intro_printout()
         input("Press Enter to return:")
     elif menu_option == 2:
-        user_input = menu.create_old()
+        menu.create_old()
+        user_input = menu.menu_selection()
         if user_input == 1:
             menu.new_haiku()
         elif user_input == 2:
@@ -40,7 +42,8 @@ while start_stop == True:
             print("please choose 1 or 2:")
             input("Press Enter to return:")
     elif menu_option == 3:
-        print("Saved files")
+        menu.saved_files()
+        menu.saved_files_system(menu.menu_selection(), save_path)
         input("Press Enter to return:")
     elif menu_option == 4:
         print("jumbler")
