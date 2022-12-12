@@ -1,6 +1,6 @@
 from haiku_poem import haiku_creator
 from file_system import create_file
-
+import json
 import file_system
 
 # Menu options for main menu
@@ -56,6 +56,24 @@ def new_haiku():
         else:
             print("incorrect input please type y or n: ")
 
+def create_haiku_system(selection, directory):
+    while True:
+        if selection == 1:
+            new_haiku()
+            break
+        elif selection == 2:
+            file_path = file_system.list_of_files(directory)
+            poem = haiku_creator()
+            try:
+                file_system.load_appends(file_path, poem)
+                break
+            except json.decoder.JSONDecodeError:
+                print("Oh no there's no poems in this file to add to")
+                input("Press enter to return to the menu") 
+        else:
+            print("please choose 1 or 2:")
+            input("Press Enter to return:")
+
 def saved_files_system(selection, directory):
     if selection == 1:
         load = file_system.list_of_files(directory)
@@ -70,3 +88,5 @@ def saved_files_system(selection, directory):
             file_system.remove_file(load)
         elif delete_file == "n":
             print("Ok going back to menu")
+    else:
+        print("Something has gone wrong sorry!")

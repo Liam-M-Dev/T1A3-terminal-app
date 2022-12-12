@@ -65,9 +65,11 @@ def edit_file(file_name):
     pass
 
 def view_file(file_name):
-    with open(file_name, 'r') as file:
-        data = json.load(file)
-        pprint(data, sort_dicts=False)
+    try:
+        with open(file_name, 'r') as file:
+            data = json.load(file)
+            pprint(data, sort_dicts=False)
+    except FileNotFoundError:
+        print("Sorry file does not exist")
 
-
-
+edit_file("./saved_files/sample_poems.json")

@@ -1,5 +1,5 @@
 from file_system import directory_path
-
+import json
 # create file tests
 def test_maps_dict():
     translation_table = dict.fromkeys(map(ord, "!@#$ "), None)
@@ -15,6 +15,4 @@ def test_returns_dir():
     result = directory_path()
     assert result == "./saved_files"
 
-# load file tests
-def test_file_selection():
-    pass
+
