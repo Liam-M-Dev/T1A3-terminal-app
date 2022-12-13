@@ -1,5 +1,4 @@
 from haiku_poem import haiku_creator
-from file_system import create_file
 import json
 import file_system
 
@@ -28,6 +27,7 @@ def saved_files():
 def confirmation():
     confirm = input(" y or n: ")
     return confirm
+
 
 def menu_selection():
     while True:

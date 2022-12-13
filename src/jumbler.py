@@ -14,9 +14,7 @@ def file_size(file_path):
 
 # randomize the file with shuffle
 def randomiser(poem_data):
-    poem_dictionary = zip(poem_data)
-    poem_dictionary = dict(poem_dictionary)
-    print(poem_dictionary.keys())
+    pass
 # return the mess of a file to the viewer to see
 # ask if they would like to save file or return to the menu
 
