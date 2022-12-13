@@ -65,16 +65,19 @@ def poem_editor(poem):
     try:
         while True:
             line_input = line_selection()
-            if line_input == "line_one" or line_input == "line_three":
+            if line_input == "line_one":
                 poem["line_one"] = five_syllable_line()
             elif line_input == "line_two":
                 poem["line_two"] = seven_syllable_line()
+            elif line_input == "line_three":
+                poem["line_three"] = five_syllable_line()
             else:
                 line_input = """Please select the line you want by typing
                 line_one, line_two or line_three"""
                 print(line_input)
     except KeyboardInterrupt:
-        return poem    
+        return poem
+            
 
 
 def line_selection():

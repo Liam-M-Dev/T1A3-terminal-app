@@ -1,4 +1,5 @@
 from haiku_poem import haiku_creator
+from haiku_poem import poem_editor
 import json
 import file_system
 
@@ -75,13 +76,19 @@ def create_haiku_system(selection, directory):
             input("Press Enter to return:")
 
 def saved_files_system(selection, directory):
+    load = file_system.list_of_files(directory)
     if selection == 1:
-        load = file_system.list_of_files(directory)
         file_system.view_file(load)
     elif selection == 2:
-        pass
+        get_poem_list = file_system.open_read_file(load)
+        get_title = file_system.title_preview(get_poem_list)
+        get_poem = file_system.poem_return(get_poem_list, get_title)
+        update_poem = poem_editor(get_poem)
+        print(update_poem)
+        final_poem = file_system.poem_update(get_poem_list, update_poem)
+        print(final_poem)
+        file_system.file_update(load, final_poem)
     elif selection == 3:
-        load = file_system.list_of_files(directory)
         print("are you sure? ")
         delete_file = confirmation()
         if delete_file == "y":
