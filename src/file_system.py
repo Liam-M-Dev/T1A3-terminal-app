@@ -61,8 +61,25 @@ def remove_file(file_name):
     except FileNotFoundError:
         print("Sorry this file doesn't exist")
 
-def edit_file(file_name):
-    pass
+def title_preview(file_name):
+    with open(file_name, "r") as file:
+        poems = json.load(file)
+        i = 0
+        while i < len(poems):
+            print(poems[i]["title"])
+            i += 1
+        title_choice = input("Enter the title of the poem you wish to edit: ")
+        return title_choice
+
+def poem_return(file_name, title):
+    with open(file_name, "r") as file:
+        poem_dicts = json.load(file)
+        i = 0
+        while i < len(poem_dicts):
+            if title == poem_dicts[i]["title"]:
+                return poem_dicts[i]
+            else: 
+                pass
 
 def view_file(file_name):
     try:
@@ -72,4 +89,3 @@ def view_file(file_name):
     except FileNotFoundError:
         print("Sorry file does not exist")
 
-edit_file("./saved_files/sample_poems.json")
