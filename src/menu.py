@@ -108,17 +108,22 @@ def saved_files_system(selection, directory):
 def jumbler_system(directory):
     file_select = file_system.list_of_files(directory)
     get_poems = file_system.open_read_file(file_select)
-    try:
-        while True:
-            jumble_poem = randomiser(file_system.file_size(get_poems))
-            print("Would you like to save this poem? ")
-            choice = confirmation()
-            if choice == "y":
-                file_system.load_appends(jumble_poem)
-            elif choice == "n":
-                print("No worries, jumble again!")
-            else: 
-                print("Sorry I didn't recognize that, please try again")
-    except KeyboardInterrupt:
-        return "No worries back to the menu"
+    file_check = file_system.file_size(get_poems)
+    if file_check != get_poems:
+        return "not enough poems, please try again"
+    else:
+        try:
+            while True:
+                jumble_poem = randomiser(get_poems)
+                print("Would you like to save this poem? ")
+                choice = confirmation()
+                if choice == "y":
+                    file_system.load_appends(file_select, jumble_poem)
+                    input(f"Saved to {file_select}, Press enter to jumble again")
+                elif choice == "n":
+                    print("No worries, jumble again!")
+                else: 
+                    print("Sorry I didn't recognize that, please try again")
+        except KeyboardInterrupt:
+            return "No worries back to the menu"
         
