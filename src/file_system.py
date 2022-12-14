@@ -68,20 +68,21 @@ def open_read_file(file_name):
         return poems
 
 def title_preview(poem_list):
-        i = 0
-        while i < len(poem_list):
-            print(poem_list[i]["title"])
-            i += 1
-        title_choice = input("Enter the title of the poem you wish to edit: ")
-        return title_choice
-
-def poem_return(poem_list, title):
-        i = 0
-        while i < len(poem_list):
-            if title == poem_list[i]["title"]:
-                return poem_list[i]
-            else:
-                i += 1 
+        
+        while True:
+            i = 0
+            while i < len(poem_list):
+                print(poem_list[i]["title"])
+                i += 1
+            title_choice = input("Enter the title of the poem you wish to edit: ")
+            for poem in poem_list:
+                if title_choice == poem["title"]:
+                    return poem
+                else:
+                    pass
+            input("Sorry the title was incorrect, press enter to try again")
+            os.system("clear")
+        
 
 def poem_update(poem_list, updated_poem):
     for poem in poem_list:

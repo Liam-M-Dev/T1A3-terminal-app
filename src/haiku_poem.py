@@ -74,7 +74,7 @@ def poem_editor(poem):
                 line_input = """Please select the line you want by typing
                 line_one, line_two or line_three"""
                 print(line_input)
-    except KeyboardInterrupt:
+    except ValueError:
         return poem
             
 
@@ -84,8 +84,8 @@ def line_selection():
     line_one, line_two or line_three, type back when finished""")
     choice = input("")
 
-    if choice == "back":
-        raise KeyboardInterrupt
+    if choice == "done":
+        raise ValueError
 
     return choice
 

@@ -38,7 +38,12 @@ def confirmation():
 def menu_selection():
     while True:
         try:
-            user_input = int(input("Select menu option: "))
+            user_input = input("Select menu option: ")
+            
+            if user_input == "back":
+                raise KeyboardInterrupt
+
+            user_input = int(user_input)
             break      
         except ValueError:
             print("Incorrect input, please try again")
@@ -50,21 +55,20 @@ def menu_selection():
 def new_haiku():
     haiku_loop = True
     save_path = file_system.directory_path()
-    try:
-        while haiku_loop == True:
-            generate_poem = haiku_creator()
-            print("Would you like to save poem?")
-            save_to_new = confirmation()
-            if save_to_new == "y":
-                file_system.create_file(save_path, generate_poem)
-                haiku_loop = False
-            elif save_to_new == "n":
-                break
-            else:
-                print("incorrect input please type y or n: ")
-    except KeyboardInterrupt:
-        print("No worries back to the menu")
-        return "No worries, back to the menu"
+    
+    while haiku_loop == True:
+        generate_poem = haiku_creator()
+        print("Would you like to save poem?")
+        save_to_new = confirmation()
+        if save_to_new == "y":
+            file_system.create_file(save_path, generate_poem)
+            haiku_loop = False
+        elif save_to_new == "n":
+            break
+        else:
+            print("incorrect input please type y or n: ")
+    
+
 
 def create_haiku_system(selection, directory):
     while True:
@@ -81,21 +85,21 @@ def create_haiku_system(selection, directory):
                 print("Oh no there's no poems in this file to add to")
                 input("Press enter to return to the menu") 
         else:
-            print("please choose 1 or 2:")
-            input("Press Enter to return:")
+            print("Incorrect input, please select 1 or 2: ")
+            selection = menu_selection()
+            
 
 def saved_files_system(selection, directory):
     load = file_system.list_of_files(directory)
-    if selection == 1:
+    if selection == 1: # prints out the poems on terminal
         file_system.view_file(load)
-    elif selection == 2:
+    elif selection == 2: # Allows user to edit poems within a file
         get_poem_list = file_system.open_read_file(load)
         get_title = file_system.title_preview(get_poem_list)
-        get_poem = file_system.poem_return(get_poem_list, get_title)
-        update_poem = poem_editor(get_poem)
+        update_poem = poem_editor(get_title)
         final_poem = file_system.poem_update(get_poem_list, update_poem)
         file_system.file_update(load, final_poem)
-    elif selection == 3:
+    elif selection == 3: # removes file from the directory
         print("are you sure? ")
         delete_file = confirmation()
         if delete_file == "y":
@@ -125,5 +129,5 @@ def jumbler_system(directory):
                 else: 
                     print("Sorry I didn't recognize that, please try again")
         except KeyboardInterrupt:
-            return "No worries back to the menu"
+            return "Jumbling complete, sending back to the menu"
         
