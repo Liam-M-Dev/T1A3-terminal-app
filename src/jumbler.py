@@ -1,6 +1,5 @@
 from random import shuffle
-from file_system import file_size
-from file_system import open_read_file
+
 
 
 # Take user input to open up a selected file to randomize
@@ -19,7 +18,3 @@ def randomiser(poem_data):
     print(shuffled)
     return shuffled
 
-# return the mess of a file to the viewer to see
-# ask if they would like to save file or return to the menu
-
-# randomiser(file_size(open_read_file("./saved_files/sample_poems.json")))

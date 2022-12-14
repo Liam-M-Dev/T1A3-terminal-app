@@ -27,7 +27,6 @@ while start_stop == True:
             input("Press Enter to return:")
         elif menu_option == 2:
             menu.create_old()
-            
             menu.create_haiku_system(menu.menu_selection(), save_path)
             
         elif menu_option == 3:

@@ -1,5 +1,6 @@
 import syllapy
 import terminal
+import menu
 from os import system
 
 
@@ -8,6 +9,7 @@ def haiku_creator():
     
     # Get user input to create title of poem
     poem_title = input("Enter a title for your poem: ")
+    menu.check_back_statement(poem_title)
     poem["title"] = poem_title
     
     # Gets user input and checks syllable count
@@ -33,6 +35,7 @@ def syllable_counter(line):
 def five_syllable_line():
     while True:
         user_input = input("Enter line: ")
+        menu.check_back_statement(user_input)
         line_count = syllable_counter(user_input)
         print(line_count)
         if line_count < 4:
@@ -49,6 +52,7 @@ def five_syllable_line():
 def seven_syllable_line():
     while True:
         user_input = input("Enter line: ")
+        menu.check_back_statement(user_input)
         line_count = syllable_counter(user_input)
         if line_count < 6:
             user_input = f"Not enough syllables, syllable count {line_count}"
@@ -75,6 +79,7 @@ def poem_editor(poem):
                 line_one, line_two or line_three"""
                 print(line_input)
     except ValueError:
+        input("Press enter to save:")
         return poem
             
 

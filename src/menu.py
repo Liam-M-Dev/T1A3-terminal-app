@@ -29,8 +29,7 @@ def saved_files():
 def confirmation():
     confirm = input(" y or n: ")
 
-    if confirm == "back":
-        raise KeyboardInterrupt
+    check_back_statement(confirm)
 
     return confirm
 
@@ -40,8 +39,7 @@ def menu_selection():
         try:
             user_input = input("Select menu option: ")
             
-            if user_input == "back":
-                raise KeyboardInterrupt
+            check_back_statement(user_input)
 
             user_input = int(user_input)
             break      
@@ -50,6 +48,9 @@ def menu_selection():
     
     return user_input
 
+def check_back_statement(back_statement):
+    if back_statement == "back":
+        raise KeyboardInterrupt
 
 # Haiku menu options
 def new_haiku():
@@ -116,18 +117,16 @@ def jumbler_system(directory):
     if file_check != get_poems:
         return "not enough poems, please try again"
     else:
-        try:
-            while True:
-                jumble_poem = randomiser(get_poems)
-                print("Would you like to save this poem? ")
-                choice = confirmation()
-                if choice == "y":
-                    file_system.load_appends(file_select, jumble_poem)
-                    input(f"Saved to {file_select}, Press enter to jumble again")
-                elif choice == "n":
-                    print("No worries, jumble again!")
-                else: 
-                    print("Sorry I didn't recognize that, please try again")
-        except KeyboardInterrupt:
-            return "Jumbling complete, sending back to the menu"
+        while True:
+            jumble_poem = randomiser(get_poems)
+            print("Would you like to save this poem? ")
+            choice = confirmation()
+            if choice == "y":
+                file_system.load_appends(file_select, jumble_poem)
+                input(f"Saved to {file_select}, Press enter to jumble again")
+            elif choice == "n":
+                print("No worries, jumble again!")
+            else: 
+                print("Sorry I didn't recognize that, please try again")
+        
         

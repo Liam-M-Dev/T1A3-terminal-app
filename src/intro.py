@@ -1,4 +1,4 @@
-
+import terminal
 # Introduction to haiku creator
 
 # Function to print out introduction and basic rules
@@ -25,5 +25,5 @@ def intro_printout():
     the selected file!
     """
 
-    print(intro_text) 
+    print(terminal.green(intro_text)) 
 

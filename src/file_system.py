@@ -1,5 +1,6 @@
 import json
 import os
+import menu
 from pprint import pprint
 
 # Checks for saved files directory
@@ -17,6 +18,7 @@ def create_file(path, haiku):
     # While loop to prevent user from entering an empty string
     while True:
         file_name = input("Enter a name for your file: ")
+        menu.check_back_statement(file_name)
         if file_name.strip() == "" :
             print("file name cannot be an empty string!")
         else:
@@ -39,6 +41,7 @@ def list_of_files(directory):
     print(os.listdir(directory))
     while True:
         user_selection = input("Enter the name of a file you want: ")
+        menu.check_back_statement(user_selection)
         user_selection = directory + "/" + user_selection
         if os.path.isfile(user_selection):
             return user_selection
@@ -75,6 +78,8 @@ def title_preview(poem_list):
                 print(poem_list[i]["title"])
                 i += 1
             title_choice = input("Enter the title of the poem you wish to edit: ")
+            menu.check_back_statement(title_choice)
+
             for poem in poem_list:
                 if title_choice == poem["title"]:
                     return poem
