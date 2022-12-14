@@ -84,9 +84,7 @@ def saved_files_system(selection, directory):
         get_title = file_system.title_preview(get_poem_list)
         get_poem = file_system.poem_return(get_poem_list, get_title)
         update_poem = poem_editor(get_poem)
-        print(update_poem)
         final_poem = file_system.poem_update(get_poem_list, update_poem)
-        print(final_poem)
         file_system.file_update(load, final_poem)
     elif selection == 3:
         print("are you sure? ")

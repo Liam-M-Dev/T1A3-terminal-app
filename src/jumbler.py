@@ -1,21 +1,27 @@
 from random import shuffle
-import json
+from file_system import file_size
+from file_system import open_read_file
 
 
 # Take user input to open up a selected file to randomize
 # check file selected has more than one poem
-def file_size(file_path):
-    with open(file_path, 'r') as file:
-        data = json.load(file)
-        if len(data) >= 2:
-            return data
-        else:
-            print("Unfortunately this file doesn't have enough poems")
+
 
 # randomize the file with shuffle
 def randomiser(poem_data):
-    pass
+    list_values = []
+    dictionary_keys = []
+    for poem in poem_data:
+        list_values += poem.values()
+        dictionary_keys += poem.keys()
+    print(list_values)
+    shuffle(list_values)
+    print(dictionary_keys)
+    shuffled = dict(zip(dictionary_keys, list_values))
+    print(shuffled)
+    return shuffled
+
 # return the mess of a file to the viewer to see
 # ask if they would like to save file or return to the menu
 
-randomiser(file_size("./saved_files/sample_poems.json"))
+# randomiser(file_size(open_read_file("./saved_files/sample_poems.json")))

@@ -17,7 +17,7 @@ def create_file(path, haiku):
     # While loop to prevent user from entering an empty string
     while True:
         file_name = input("Enter a name for your file: ")
-        if file_name == "":
+        if file_name.strip() == "" :
             print("file name cannot be an empty string!")
         else:
             break
@@ -36,7 +36,7 @@ def create_file(path, haiku):
 def list_of_files(directory):
     """Prints list of files in directory
         and checks user response is a valid file path"""
-    print(os.listdir("./saved_files"))
+    print(os.listdir(directory))
     while True:
         user_selection = input("Enter the name of a file you want: ")
         user_selection = directory + "/" + user_selection
@@ -92,8 +92,11 @@ def poem_update(poem_list, updated_poem):
     return poem_list
 
 def file_update(file_name, updated_poem_list):
-    with open(file_name, "w") as file:
-        json.dump(updated_poem_list, file, indent=4)
+    try:
+        with open(file_name, "w") as file:
+            json.dump(updated_poem_list, file, indent=4)
+    except FileNotFoundError:
+        print("Something went wrong with the file name, please try again:")
 
 def view_file(file_name):
     try:
@@ -103,3 +106,11 @@ def view_file(file_name):
     except FileNotFoundError:
         print("Sorry file does not exist")
 
+def file_size(poem_file):
+    
+        if len(poem_file) >= 2:
+            return poem_file
+        else:
+            return "Sorry this file does not have enough poems to jumble"
+
+print(file_size(open_read_file("./saved_files/trial.json")))
