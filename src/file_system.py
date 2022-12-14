@@ -79,8 +79,8 @@ def poem_return(poem_list, title):
         while i < len(poem_list):
             if title == poem_list[i]["title"]:
                 return poem_list[i]
-            else: 
-                pass
+            else:
+                i += 1 
 
 def poem_update(poem_list, updated_poem):
     for poem in poem_list:

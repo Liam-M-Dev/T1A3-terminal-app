@@ -1,8 +1,7 @@
 import syllapy
 import terminal
 from os import system
-# from menu import line_selection
-import file_system
+
 
 def haiku_creator():
     poem = {}
@@ -83,7 +82,7 @@ def poem_editor(poem):
 def line_selection():
     print("""Enter the line you want to edit by typing
     line_one, line_two or line_three, type back when finished""")
-    choice = input("line_one, line_two or line_three")
+    choice = input("")
 
     if choice == "back":
         raise KeyboardInterrupt
