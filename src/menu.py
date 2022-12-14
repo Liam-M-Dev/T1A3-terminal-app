@@ -1,8 +1,11 @@
-from haiku_poem import haiku_creator
-from haiku_poem import poem_editor
-import json
-import file_system
-from jumbler import randomiser
+try:
+    from haiku_poem import haiku_creator
+    from haiku_poem import poem_editor
+    import json
+    import file_system
+    from jumbler import randomiser
+except ImportError:
+    print("There's been an error with imports, please check modules are installed")
 
 # Menu options for main menu
 def main_menu():
@@ -38,9 +41,7 @@ def menu_selection():
     while True:
         try:
             user_input = input("Select menu option: ")
-            
             check_back_statement(user_input)
-
             user_input = int(user_input)
             break      
         except ValueError:
@@ -60,14 +61,15 @@ def new_haiku():
     while haiku_loop == True:
         generate_poem = haiku_creator()
         print("Would you like to save poem?")
-        save_to_new = confirmation()
-        if save_to_new == "y":
-            file_system.create_file(save_path, generate_poem)
-            haiku_loop = False
-        elif save_to_new == "n":
-            break
-        else:
-            print("incorrect input please type y or n: ")
+        while True:
+            save_to_new = confirmation()
+            if save_to_new.lower() == "y":
+                file_system.create_file(save_path, generate_poem)
+                haiku_loop = False
+            elif save_to_new.lower() == "n":
+                break
+            else:
+                print("incorrect input please type y or n: ")
     
 
 

@@ -1,8 +1,10 @@
-from os import system
-import menu
-import file_system
-from intro import intro_printout
-
+try:
+    from os import system
+    import menu
+    import file_system
+    from intro import intro_printout
+except ImportError:
+    print("There's been an error with imports, please check modules are installed")
 
 
 # Variable to handle start and stopping for main menu loop

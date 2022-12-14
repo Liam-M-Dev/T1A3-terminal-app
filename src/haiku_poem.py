@@ -1,8 +1,10 @@
-import syllapy
-import terminal
-import menu
-from os import system
-
+try:
+    import syllapy
+    import terminal
+    import menu
+    from os import system
+except ImportError:
+    print("There's been an error with imports, please check modules are installed")
 
 def haiku_creator():
     poem = {}
@@ -68,15 +70,15 @@ def poem_editor(poem):
     try:
         while True:
             line_input = line_selection()
-            if line_input == "line_one":
+            if line_input.lower() == "line_one":
                 poem["line_one"] = five_syllable_line()
-            elif line_input == "line_two":
+            elif line_input.lower() == "line_two":
                 poem["line_two"] = seven_syllable_line()
-            elif line_input == "line_three":
+            elif line_input.lower() == "line_three":
                 poem["line_three"] = five_syllable_line()
             else:
-                line_input = """Please select the line you want by typing
-                line_one, line_two or line_three"""
+                line_input = """Please select the line you want by 
+                typing line_one, line_two or line_three"""
                 print(line_input)
     except ValueError:
         input("Press enter to save:")
@@ -86,10 +88,10 @@ def poem_editor(poem):
 
 def line_selection():
     print("""Enter the line you want to edit by typing
-    line_one, line_two or line_three, type back when finished""")
+    line_one, line_two or line_three, type done when finished""")
     choice = input("")
-
-    if choice == "done":
+    menu.check_back_statement(choice)
+    if choice.lower() == "done":
         raise ValueError
 
     return choice

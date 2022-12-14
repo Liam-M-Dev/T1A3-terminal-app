@@ -1,8 +1,11 @@
-import json
-import os
-import menu
-from pprint import pprint
-
+try:
+    import json
+    import os
+    import menu
+    from pprint import pprint
+except ImportError:
+    print("There's been an error with imports, " 
+    "please check modules are installed")
 # Checks for saved files directory
 # If directory doesn't exist, function creates the directory
 def directory_path():
@@ -77,15 +80,18 @@ def title_preview(poem_list):
             while i < len(poem_list):
                 print(poem_list[i]["title"])
                 i += 1
-            title_choice = input("Enter the title of the poem you wish to edit: ")
+            title_choice = input("Enter the title of the " 
+                 "poem you wish to edit: ")
             menu.check_back_statement(title_choice)
 
             for poem in poem_list:
-                if title_choice == poem["title"]:
+                if title_choice.lower() == poem["title"].lower():
+                    print(f"you selected {poem['title']}")
                     return poem
                 else:
                     pass
-            input("Sorry the title was incorrect, press enter to try again")
+            input("Sorry the title was incorrect,"  
+            " press enter to try again")
             os.system("clear")
         
 
@@ -105,6 +111,7 @@ def file_update(file_name, updated_poem_list):
     except FileNotFoundError:
         print("Something went wrong with the file name, please try again:")
 
+# opens file and prints out dictionaries to terminal
 def view_file(file_name):
     try:
         with open(file_name, 'r') as file:

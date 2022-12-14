@@ -1,5 +1,8 @@
-from random import shuffle
-
+try:
+    from random import shuffle
+except ImportError:
+    print("There's been an error with imports," 
+    "please check modules are installed")
 
 
 # Take user input to open up a selected file to randomize
