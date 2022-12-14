@@ -61,6 +61,7 @@ def remove_file(file_name):
     except FileNotFoundError:
         print("Sorry this file doesn't exist")
 
+# Takes selected file from user and returns list of poems in file
 def open_read_file(file_name):
     with open(file_name, "r") as file:
         poems = json.load(file)
@@ -113,4 +114,3 @@ def file_size(poem_file):
         else:
             return "Sorry this file does not have enough poems to jumble"
 
-print(file_size(open_read_file("./saved_files/trial.json")))

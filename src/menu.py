@@ -2,6 +2,7 @@ from haiku_poem import haiku_creator
 from haiku_poem import poem_editor
 import json
 import file_system
+from jumbler import randomiser
 
 # Menu options for main menu
 def main_menu():
@@ -27,6 +28,10 @@ def saved_files():
 
 def confirmation():
     confirm = input(" y or n: ")
+
+    if confirm == "back":
+        raise KeyboardInterrupt
+
     return confirm
 
 
@@ -45,17 +50,21 @@ def menu_selection():
 def new_haiku():
     haiku_loop = True
     save_path = file_system.directory_path()
-    while haiku_loop == True:
-        generate_poem = haiku_creator()
-        print("Would you like to save poem?")
-        save_to_new = confirmation()
-        if save_to_new == "y":
-            file_system.create_file(save_path, generate_poem)
-            haiku_loop = False
-        elif save_to_new == "n":
-            break
-        else:
-            print("incorrect input please type y or n: ")
+    try:
+        while haiku_loop == True:
+            generate_poem = haiku_creator()
+            print("Would you like to save poem?")
+            save_to_new = confirmation()
+            if save_to_new == "y":
+                file_system.create_file(save_path, generate_poem)
+                haiku_loop = False
+            elif save_to_new == "n":
+                break
+            else:
+                print("incorrect input please type y or n: ")
+    except KeyboardInterrupt:
+        print("No worries back to the menu")
+        return "No worries, back to the menu"
 
 def create_haiku_system(selection, directory):
     while True:
@@ -95,3 +104,21 @@ def saved_files_system(selection, directory):
             print("Ok going back to menu")
     else:
         print("Something has gone wrong sorry!")
+
+def jumbler_system(directory):
+    file_select = file_system.list_of_files(directory)
+    get_poems = file_system.open_read_file(file_select)
+    try:
+        while True:
+            jumble_poem = randomiser(file_system.file_size(get_poems))
+            print("Would you like to save this poem? ")
+            choice = confirmation()
+            if choice == "y":
+                file_system.load_appends(jumble_poem)
+            elif choice == "n":
+                print("No worries, jumble again!")
+            else: 
+                print("Sorry I didn't recognize that, please try again")
+    except KeyboardInterrupt:
+        return "No worries back to the menu"
+        

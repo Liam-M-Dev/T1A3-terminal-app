@@ -14,9 +14,7 @@ def randomiser(poem_data):
     for poem in poem_data:
         list_values += poem.values()
         dictionary_keys += poem.keys()
-    print(list_values)
     shuffle(list_values)
-    print(dictionary_keys)
     shuffled = dict(zip(dictionary_keys, list_values))
     print(shuffled)
     return shuffled
