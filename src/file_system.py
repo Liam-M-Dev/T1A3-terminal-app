@@ -73,9 +73,13 @@ def remove_file(file_name):
 
 # Takes selected file from user and returns list of poems in file
 def open_read_file(file_name):
-    with open(file_name, "r") as file:
-        poems = json.load(file)
-        return poems
+    try:
+        with open(file_name, "r") as file:
+            poems = json.load(file)
+            return poems
+    except FileNotFoundError:
+        print("Something has gone wrong with the file, \
+        please try again")
 
 def title_preview(poem_list):
         
@@ -125,9 +129,11 @@ def view_file(file_name):
         print("Sorry file does not exist")
 
 def file_size(poem_file):
-    
-        if len(poem_file) >= 2:
-            return poem_file
-        else:
-            return "Sorry this file does not have enough poems to jumble"
+    if type(poem_file) != list:
+        poem_file = [poem_file]
+
+    if len(poem_file) >= 2:
+        return poem_file
+    else:
+        return "Sorry this file does not have enough poems to jumble"
 
