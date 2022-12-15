@@ -15,8 +15,15 @@ def directory_path():
     return save_path
 
 # Function to create save file path and write haiku into file
-def create_file(path, haiku):
+def create_file(path, file_name, haiku):
     # Creates map of one character unicode strings
+    
+    full_path = path + "/" + file_name
+    print(full_path)
+    with open(full_path, "w") as file:
+          json.dump(haiku, file, indent=4)
+
+def create_file_name():
     translation_table = dict.fromkeys(map(ord, "!@#$ "), None)
     # While loop to prevent user from entering an empty string
     while True:
@@ -26,16 +33,9 @@ def create_file(path, haiku):
             print("file name cannot be an empty string!")
         else:
             break
-    
-    # compares user input file name with mapped unicode strings
-    # removes any invalid characters for the file name
-    # adds .json to the end to create .json file
-    file_name = file_name.translate(translation_table) + ".json"
-    full_path = path + "/" + file_name
-    print(full_path)
-    with open(full_path, "w") as file:
-          json.dump(haiku, file, indent=4)
 
+    file_name = file_name.translate(translation_table) + ".json"
+    return file_name
 # Function to print files to user
 # Giving the user the option to choose file they wish to work on
 def list_of_files(directory):

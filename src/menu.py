@@ -64,8 +64,12 @@ def new_haiku():
         while True:
             save_to_new = confirmation()
             if save_to_new.lower() == "y":
-                file_system.create_file(save_path, generate_poem)
+                new_file = file_system.create_file_name()
+                file_system.create_file(save_path, new_file, \
+                     generate_poem)
+                input("Poem saved, press enter to return: ")
                 haiku_loop = False
+                break
             elif save_to_new.lower() == "n":
                 break
             else:
