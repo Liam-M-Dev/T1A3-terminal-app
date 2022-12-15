@@ -20,11 +20,13 @@ def create_file(path, file_name, haiku):
     
     full_path = path + "/" + file_name
     print(full_path)
+    
     with open(full_path, "w") as file:
-          json.dump(haiku, file, indent=4)
+        json.dump(haiku, file, indent=4)
 
 def create_file_name():
-    translation_table = dict.fromkeys(map(ord, "!@#$ "), None)
+    translation_table = dict.fromkeys(map(ord, "!@#$%^&*()+=?>< ") \
+    , None)
     # While loop to prevent user from entering an empty string
     while True:
         file_name = input("Enter a name for your file: ")
@@ -36,6 +38,7 @@ def create_file_name():
 
     file_name = file_name.translate(translation_table) + ".json"
     return file_name
+
 # Function to print files to user
 # Giving the user the option to choose file they wish to work on
 def list_of_files(directory):
@@ -49,7 +52,8 @@ def list_of_files(directory):
         if os.path.isfile(user_selection):
             return user_selection
         else:
-            print("Sorry incorrect path, please type out file name:")
+            user_selection = "Sorry incorrect file name, please try again!"
+            print(user_selection)
             
 
 # Loads file and converts to list to append new haiku to data
