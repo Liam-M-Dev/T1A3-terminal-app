@@ -19,7 +19,18 @@ fi
 
 if [[ -x "$(command -v pip)" ]]
 then
-    echo "you have pip installed"
+    pipv="$(pip -V)"
+    if [[ $pipv == "pip 22"* ]]
+    then
+        echo "you have pip installed and the correct version"
+    else
+        echo "the version you have is out of date, just need to upgrade this"
+        "$ pip install --upgrade pip"
+    exit 1
+    fi
 else
-    echo "you need to install pip"
+    echo "Error:
+    Pip isn't installed, please follow the instructions from 
+    https://pip.pypa.io/en/stable/installation/ to install" >&2
+    exit 1
 fi
