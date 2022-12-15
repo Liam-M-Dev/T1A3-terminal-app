@@ -3,6 +3,7 @@ from file_system import create_file_name
 from file_system import list_of_files
 from file_system import create_file
 from file_system import remove_file
+from file_system import file_size
 from menu import check_back_statement
 from os import path
 
@@ -14,6 +15,15 @@ sample_poem = {"title": "Sample poem",
                 "line_two": "this is another sample",
                 "line_three": "this is the last line"}
 
+# sample_file for testing file size function
+sample_poem_file = [{"title": "Sample poem",
+                "line_one": "this is a sample line",
+                "line_two": "this is another sample",
+                "line_three": "this is the last line"},
+                {"title": "Sample poem",
+                "line_one": "this is a sample line",
+                "line_two": "this is another sample",
+                "line_three": "this is the last line"}]
 # Test to check that mapped characters remove matching characters
 # from user input within function
 def test_maps_characters_removed_from_string(monkeypatch):
@@ -22,13 +32,6 @@ def test_maps_characters_removed_from_string(monkeypatch):
     result = create_file_name()
     assert result == "testfile.json"
 
-
-# test case to ensure save path and file name join
-def test_file_name_joins():
-    file_name = 'sample.json'
-    save_path = "./saved_files"
-    assert save_path + "/" + file_name == \
-    "./saved_files/sample.json"
 
 # Tests that directory path returns directory saved files
 def test_returns_dir():
@@ -59,3 +62,15 @@ def test_creates_file():
 def test_removes_file():
     remove_file("./saved_files/test_file.json")
     assert not (path.isfile("./saved_files/test_file.json"))
+
+
+# File size function tests
+# Test returns fail message due to one list item
+def test_returns_fail_message():
+    result = file_size([sample_poem])
+    assert result == "Sorry this file does not have enough poems to jumble"
+
+# Test returns list of poems if list contains 2 or more elements
+def test_returns_poem_file():
+    result = file_size(sample_poem_file)
+    assert result == sample_poem_file
