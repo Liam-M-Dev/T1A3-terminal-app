@@ -1,6 +1,8 @@
-{
-    "title": "a poem",
-    "line_one": "a line written",
-    "line_two": "down between two shades of",
-    "line_three": "a palm that questions"
-}
+[
+    {
+        "title": "a poem",
+        "line_one": "this is a sample poem",
+        "line_two": "feel free to edit this ",
+        "line_three": "or remove it "
+    }
+]

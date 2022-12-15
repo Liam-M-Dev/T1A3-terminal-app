@@ -3,6 +3,7 @@ try:
     import terminal
     import menu
     from os import system
+    from pprint import pprint
 except ImportError:
     print("There's been an error with imports, please check modules are installed")
 
@@ -69,6 +70,7 @@ def seven_syllable_line():
 def poem_editor(poem):
     try:
         while True:
+            pprint(poem, sort_dicts=False)
             line_input = line_selection()
             if line_input.lower() == "line_one":
                 poem["line_one"] = five_syllable_line()

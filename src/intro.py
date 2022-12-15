@@ -26,6 +26,8 @@ def intro_printout():
     You can also view and edit your files in the saved file option.
     For extra fun, try the jumble option to jumble your haiku's in
     the selected file!
+
+    **type back at any prompt to get back to the main menu!
     """
 
     print(terminal.green(intro_text)) 
