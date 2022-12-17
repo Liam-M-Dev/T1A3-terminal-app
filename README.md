@@ -52,7 +52,7 @@ The jumbler is a fun little feature in which the user can jumble the sentences w
 
 ### Implementation Plan
 
-The implementation plan for this project is as follows (work in progress)
+The implementation plan for this project is as follows
 
 I have created a Kaban work board to track my progress with the use of Trello boards. [link to website](https://trello.com/b/jaVpKf8J/haiku-terminal-app)
 
@@ -113,3 +113,61 @@ I have created a Kaban work board to track my progress with the use of Trello bo
 ***
 
 ### Help Documentation  
+
+#### **Installation**  
+
+1) Clone from repository this can be done by git clone git@github.com:Liam-M-Dev/T1A3-terminal-app.git  
+2) Once cloned make the bash scripts executable by typing chmod +x main.sh python-pip-install.sh venv-install.sh  
+3) Next run the python-pip-install script to ensure you have python and pip installed and the correct versions, python version = 3.10.8, pip version = 22 and up  
+4) If you do not have python or pip installed follow these guides: [pip](https://pip.pypa.io/en/stable/installation/), [python](https://installpython3.com/)  
+5) Now to set up your virtual environment, run the venv-install script which will do the heavy lifting for you
+6) If you prefer to set up manually then firstly make sure you have pyenv installed by typing ```command -v pyenv```, if it is not installed then follow this [guide](https://k0nze.dev/posts/install-pyenv-venv-vscode/#linux-debianubuntu) by Konstantin Lübeck
+7) Once pyenv is installed, set the python version for the local repository by typing ```pyenv local python 3.10.8``` in the terminal
+8) Now create a python virtual environment by typing ```python -m venv .venv``` or ```python3 -m venv .venv```
+9) Activate the virtual environment by typing ```source venv/bin/activate``` and install from package requirements with ```pip3 install -r requirements.txt```
+10) Installation is complete, you can now run the terminal app by inputting ```./main.sh``` in the terminal
+
+#### **How to use haiku creator**  
+
+Haiku creator is an easy to use application and following these steps will ensure that you have no issues with operating the app.  
+When first starting the app, you will be presented with a menu with 5 options,
+
+- intro
+- haiku creator
+- saved files
+- jumbler
+- quit
+
+To choose an option from the menu simply type its related number into the terminal and hit enter.
+_Note that there is a back feature for all input sections in which if you type back into the terminal and hit enter, it will take you back to the main menu._  
+
+The Intro section has a helpful introduction to what a haiku is and how to use the app.  
+The haiku creator option allows you to choose to create a new file or save to a previous file.  
+
+#### **Create a haiku**
+
+When selecting create a new file, firstly you will have to make your haiku. This is done by typing into the terminal when prompted. You will create a title, then the lines, each line will check your syllables and allow you to continue if its in the approved amount, for line 1 and 3 it is 4-6 syllables and for line 2 it is 6-8 syllables.  
+The program will then ask you if you would like to save, by typing either y or n you can either save the poem or return to the menu.  
+When saving the poem is selected, you will be prompted to type in a name for the file, with your file name, avoid using special characters and just type the name as the app will save it as a .json file.  
+When saving a new poem to a previous file, the only difference here is that you will be prompted to select the file you would like to save into, to do this type out the full name of the file including .json.
+
+#### **Saved files**
+
+The saved files menu option gives you three choices, view your poems from a file, edit poems within a file and delete a file.  
+You can access these options by typing in the corresponding number.
+
+- viewing your files will print out the poems from a file you choose to the terminal screen
+- Editing poems, will prompt you to type in the name of the file you wish to edit, then the program will print out the available poem titles
+- You can select a poem by typing the title in the terminal, then you will be prompted to choose a line to edit, editing is the same process as creating where you will type the new line you want and it will check the syllables before accepting. Once you are done editing, type done into the terminal to save and exit
+- To delete a file simply enter a file name that you wish to delete, then confirm by typing "y" in the terminal  
+
+#### **Jumbler feature**
+
+The jumbler is a fun little game that will mash together your titles and lines and generate a new poem that you can choose to save or retry.  
+To use this feature, access it via the menu and then type the file name that you wish to select, the program will check the amount of poems within the file, if the file has 2 or more poems then it will randomly generate a new poem with the contents, if not it will tell you to try again with a new file.  
+
+#### **Helpful features**  
+
+There's really only 2 features I need to reiterate to ensure smooth usage of the app. Firstly at any input prompt you can type back and it will return you to the main menu. To exit the program you need to type 5 in at the main menu to select the quit option.  
+
+That's all, have fun creating haiku poems!
