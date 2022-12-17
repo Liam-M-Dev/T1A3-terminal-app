@@ -5,7 +5,8 @@ try:
     from os import system
     from pprint import pprint
 except ImportError:
-    print("There's been an error with imports, please check modules are installed")
+    print("There's been an error with imports, " \
+     "please check modules are installed")
 
 def haiku_creator():
     poem = {}
@@ -42,10 +43,12 @@ def five_syllable_line():
         line_count = syllable_counter(user_input)
         print(line_count)
         if line_count < 4:
-            user_input = f"Not enough syllables, syllable count {line_count}"
+            user_input = \
+            f"Not enough syllables, syllable count {line_count}"
             print(user_input)
         elif line_count > 6:
-            user_input = f"Too many syllables, syllable count {line_count}"
+            user_input = \
+            f"Too many syllables, syllable count {line_count}"
             print(user_input)
         else:
             return user_input
@@ -58,10 +61,12 @@ def seven_syllable_line():
         menu.check_back_statement(user_input)
         line_count = syllable_counter(user_input)
         if line_count < 6:
-            user_input = f"Not enough syllables, syllable count {line_count}"
+            user_input = \
+            f"Not enough syllables, syllable count {line_count}"
             print(user_input)
         elif line_count > 8:
-            user_input = f"Too many syllables, syllable count {line_count}"
+            user_input = \
+            f"Too many syllables, syllable count {line_count}"
             print(user_input)
         else:
             return user_input

@@ -13,8 +13,28 @@
 
 Haiku creator is a terminal app that you can use to create your own haiku poetry. The app it allows you to create a file to save your own haiku poems. You can create multiple files, access them to print out your poems to the terminal, edit poems and remove poems or the file itself.  
 As an added extra there is a jumble mode that allows you to select a file with 2 or more poems and randomly mix/match the poems sentences to create new poems.  
-Just remember to follow the basic rule, 5-7-5 rule (5 syllables first line, 7 second line and 5 for the third line).  
+This app has a feature to ensure you keep your haiku's within a certain amount of syllables. The first and third line are between 4-6 syllables and the second line is 6-8 syllables. The basic rule is 5-7-5 but I wanted to give a little leeway as it can be difficult to stick to that rule.  
 Please refer to the help documentation to get a better understanding to install the app and how to use it.  
+***
+
+### System Requirements
+
+To run this terminal app you will need:
+
+- python version 3.10.8
+- pip version 22 or higher
+- pyenv for the virtual environment
+- python packages
+  - attrs==22.1.0
+  - exceptiongroup==1.0.4
+  - iniconfig==1.1.1
+  - packaging==22.0
+  - pluggy==1.0.0
+  - pytest==7.2.0
+  - syllapy==0.7.2
+  - terminal==0.4.0
+  - tomli==2.0.1
+
 ***
 
 ### Code Style Guide

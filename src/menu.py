@@ -129,10 +129,12 @@ def jumbler_system(directory):
             choice = confirmation()
             if choice == "y":
                 file_system.load_appends(file_select, jumble_poem)
-                input(f"Saved to {file_select}, Press enter to jumble again")
+                input(f"Saved to {file_select}, "
+                 "Press enter to jumble again")
             elif choice == "n":
                 print("No worries, jumble again!")
             else: 
-                print("Sorry I didn't recognize that, please try again")
+                print("Sorry I didn't recognize that, " \
+                "please try again")
         
         

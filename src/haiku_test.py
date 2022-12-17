@@ -9,9 +9,11 @@ def test_syllable_count_escapes(monkeypatch):
     with pytest.raises(KeyboardInterrupt):
         haiku_poem.five_syllable_line()
 
-# Testing syllable count returns string when condition is met
+# Testing syllable count returns string 
+# when condition 4-6 syllables is met
 def test_syllable_count_returns_string(monkeypatch):
-    monkeypatch.setattr("builtins.input", lambda _: "this is a string")
+    monkeypatch.setattr("builtins.input", \
+    lambda _: "this is a string")
     result = haiku_poem.five_syllable_line()
     assert result == "this is a string"
 
@@ -41,7 +43,8 @@ def test_line_selection_raises_value_error(monkeypatch):
     with pytest.raises(ValueError):
         haiku_poem.line_selection()
 
-# test line selection raises keyboard interrupt when user inputs "back"
+# test line selection raises keyboard interrupt 
+# when user inputs "back"
 def test_line_selection_raises_keyboard_interrupt(monkeypatch):
     monkeypatch.setattr("builtins.input", lambda _: "back")
     with pytest.raises(KeyboardInterrupt):

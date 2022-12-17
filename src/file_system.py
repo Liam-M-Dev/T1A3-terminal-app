@@ -145,5 +145,6 @@ def file_size(poem_file):
     if len(poem_file) >= 2:
         return poem_file
     else:
-        return "Sorry this file does not have enough poems to jumble"
+        return "Sorry this file does not " \
+        "have enough poems to jumble"
 

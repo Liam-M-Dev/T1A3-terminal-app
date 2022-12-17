@@ -42,7 +42,8 @@ while start_stop == True:
             print("Exits program!")
             start_stop = False
         else:
-            print("Sorry not a valid input, please select from the options")
+            print("Sorry not a valid input, "  
+            "please select from the options")
             input("Press Enter to return:")
     except KeyboardInterrupt:
         input("Back to main menu: ")        
