@@ -52,8 +52,8 @@ def list_of_files(directory):
         if os.path.isfile(user_selection):
             return user_selection
         else:
-            user_selection = "Sorry incorrect file name, \
-             please try again!"
+            user_selection = "Sorry incorrect file name, " \
+             "please try again!"
             print(user_selection)
             
 

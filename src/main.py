@@ -30,7 +30,6 @@ while start_stop == True:
         elif menu_option == 2:
             menu.create_old()
             menu.create_haiku_system(menu.menu_selection(), save_path)
-            
         elif menu_option == 3:
             menu.saved_files()
             menu.saved_files_system(menu.menu_selection(), save_path)

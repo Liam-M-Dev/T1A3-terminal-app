@@ -7,7 +7,7 @@ try:
 except ImportError:
     print("There's been an error with imports, please check modules are installed")
 
-# Menu options for main menu
+# Menu options for main menu, create a haiku and saved files
 def main_menu():
     print("1: Intro")
     print("2: Create Haiku")
@@ -104,7 +104,8 @@ def saved_files_system(selection, directory):
         get_poem_list = file_system.open_read_file(load)
         get_title = file_system.title_preview(get_poem_list)
         update_poem = poem_editor(get_title)
-        final_poem = file_system.poem_update(get_poem_list, update_poem)
+        final_poem = file_system.poem_update(get_poem_list, \
+            update_poem)
         file_system.file_update(load, final_poem)
     elif selection == 3: # removes file from the directory
         print("are you sure? ")
