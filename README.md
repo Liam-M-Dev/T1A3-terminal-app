@@ -1,11 +1,12 @@
-# Haiku Creator - WIP
+# Haiku Creator
 
 ## Liam Massey T1A3
 
 ***
 
-### Repository Link
+### Repository and Video Link
 
+[Video presentation](https://youtu.be/buRMeKvHnzo)
 [Github repository](https://github.com/Liam-M-Dev/T1A3-terminal-app)  
 ***
 
@@ -133,6 +134,11 @@ I have created a Kaban work board to track my progress with the use of Trello bo
 
 ***
 
+### Testing procedure
+
+For an outline of the testing procedure please follow this [link](./src/testingprocedure.md)
+***
+
 ### Help Documentation  
 
 #### **Installation**  
@@ -192,3 +198,28 @@ To use this feature, access it via the menu and then type the file name that you
 There's really only 2 features I need to reiterate to ensure smooth usage of the app. Firstly at any input prompt you can type back and it will return you to the main menu. To exit the program you need to type 5 in at the main menu to select the quit option.  
 
 That's all, have fun creating haiku poems!
+***
+
+### Screenshots  
+
+![Terminal menu](./docs/app_screenshots/menu.png)
+
+![create haiku](./docs/app_screenshots/create_haiku.png)
+
+![intro page](./docs/app_screenshots/intro_page.png)
+
+![view poems](./docs/app_screenshots/view_poems.png)
+
+![poem jumbler](./docs/app_screenshots/poem_jumbler.png)
+
+***
+
+### Reference List
+
+#### **Poems**
+
+the three poems saved in the sample poems file are
+
+1) Even in Kyoto - Matsuo Basho
+2) Over the Wintry - Natsume Soseki
+3) Lines on a Skull - Ravi Shanker
