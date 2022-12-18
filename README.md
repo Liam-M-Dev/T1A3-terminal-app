@@ -67,6 +67,7 @@ The file system is a feature that allows the users to handle the files and poems
 #### **Jumbler**
 
 The jumbler is a fun little feature in which the user can jumble the sentences within a saved file and return new mismatched poems. The jumbler will only accept a file with at least 2 or more poems within its contents. Once an appropriate file is chosen, the feature will rearrange the lines of the poems by swapping line 1s with line 1s, line 2s with line 2s and line 3s with line 3s. Returning a new set of mismatched poems this then allows the user to save the new list or return to the original file.  
+**_note_:** While implementing my jumbler feature, I actually decided to stray a little from this plan and have the jumbler shuffling titles and all the lines from the poems up, producing a single poem from the jumble and giving the user the option to save to the file.
 
 ***
 
@@ -114,7 +115,7 @@ I have created a Kaban work board to track my progress with the use of Trello bo
 
 - Implement function that asks user to choose the file to jumble
 - Implement logic to ensure file has 2 or more haiku poems within
-- Implement logic that takes the chosen file and re-arranges the lines, ensuring line 1 swaps with line 1, line 2 swaps with line 2 and line 3 swaps with line 3
+- Implement logic that takes the chosen file and jumbles all of the contents of the poems up
 - Once jumbled ensure that user is returned with new jumbled poems to view
 - Ensure user is asked if they wish to save poems before removing old file data
 

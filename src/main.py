@@ -18,7 +18,7 @@ save_path = file_system.directory_path()
 # User input converted to int to select from menu.
 # Option 5 exits loop by changing start_stop to False
 
-while start_stop == True:
+while start_stop != False:
     system("clear")
     try:
         menu.main_menu()
@@ -39,13 +39,12 @@ while start_stop == True:
             print(menu.jumbler_system(save_path))
             input("Press Enter to return:")
         elif menu_option == 5:
-            print("Exits program!")
             start_stop = False
         else:
             print("Sorry not a valid input, "  
             "please select from the options")
             input("Press Enter to return:")
     except KeyboardInterrupt:
-        input("Back to main menu: ")        
+        input("Back to main menu: ")
 
 print("See you next time")
