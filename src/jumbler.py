@@ -1,5 +1,6 @@
 try:
     from random import shuffle
+    from pprint import pprint
 except ImportError:
     print("There's been an error with imports," 
     "please check modules are installed")
@@ -18,6 +19,6 @@ def randomiser(poem_data):
         dictionary_keys += poem.keys()
     shuffle(list_values)
     shuffled = dict(zip(dictionary_keys, list_values))
-    print(shuffled)
+    pprint(shuffled, sort_dicts=False)
     return shuffled
 

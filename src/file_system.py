@@ -10,7 +10,7 @@ except ImportError:
 # If directory doesn't exist, function creates the directory
 def directory_path():
     save_path = "./saved_files"
-    if os.path.isdir(save_path) == False:
+    if not os.path.isdir(save_path):
         os.mkdir(save_path)
     return save_path
 
@@ -118,16 +118,16 @@ def poem_update(poem_list, updated_poem):
                 pass
         return poem_list
     except KeyError:
-        print("Something has gone wrong with the poem, \
-         please try again")
+        print("Something has gone wrong with the poem, " \
+         "please try again")
 
 def file_update(file_name, updated_poem_list):
     try:
         with open(file_name, "w") as file:
             json.dump(updated_poem_list, file, indent=4)
     except FileNotFoundError:
-        print("Something went wrong with the file name, \
-         please try again:")
+        print("Something went wrong with the file name, " \
+         "please try again:")
 
 # opens file and prints out dictionaries to terminal
 def view_file(file_name):
