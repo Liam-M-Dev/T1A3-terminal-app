@@ -1,8 +1,8 @@
 try:
     import terminal
 except ImportError:
-    print("There's been an error with imports, "  
-    "please check modules are installed")
+    print("Something went wrong with the file name, " \
+        "please try again:")
 # Introduction to haiku creator
 
 # Function to print out introduction and basic rules

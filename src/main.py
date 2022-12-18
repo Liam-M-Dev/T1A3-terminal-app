@@ -4,7 +4,8 @@ try:
     import file_system
     from intro import intro_printout
 except ImportError:
-    print("There's been an error with imports, please check modules are installed")
+    print("There's been an error with imports, " \
+        "please check modules are installed")
 
 
 # Variable to handle start and stopping for main menu loop
@@ -47,4 +48,4 @@ while start_stop == True:
     except KeyboardInterrupt:
         input("Back to main menu: ")        
 
-    
+print("See you next time")

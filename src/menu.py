@@ -5,7 +5,8 @@ try:
     import file_system
     from jumbler import randomiser
 except ImportError:
-    print("There's been an error with imports, please check modules are installed")
+    print("There's been an error with imports, " \
+        "please check modules are installed")
 
 # Menu options for main menu, create a haiku and saved files
 def main_menu():

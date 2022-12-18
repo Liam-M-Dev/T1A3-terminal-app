@@ -9,12 +9,12 @@ else
     https://k0nze.dev/posts/install-pyenv-venv-vscode/#linux-debianubuntu"
 fi
 
-$ pyenv local Python 3.10.8
+pyenv local Python 3.10.8
 
-$ python -m venv .venv
+python -m venv .venv
 
-$ source .venv/bin/activate
+source .venv/bin/activate
 
-$ pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 
-$ ./main.sh
+./main.sh

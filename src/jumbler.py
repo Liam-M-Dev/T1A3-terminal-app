@@ -2,7 +2,7 @@ try:
     from random import shuffle
     from pprint import pprint
 except ImportError:
-    print("There's been an error with imports," 
+    print("There's been an error with imports," \
     "please check modules are installed")
 
 

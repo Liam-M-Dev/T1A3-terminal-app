@@ -4,7 +4,7 @@ try:
     import menu
     from pprint import pprint
 except ImportError:
-    print("There's been an error with imports, " 
+    print("There's been an error with imports, " \
     "please check modules are installed")
 # Checks for saved files directory
 # If directory doesn't exist, function creates the directory
@@ -16,7 +16,6 @@ def directory_path():
 
 # Function to create save file path and write haiku into file
 def create_file(path, file_name, haiku):
-    # Creates map of one character unicode strings
     
     full_path = path + "/" + file_name
     print(full_path)
@@ -79,8 +78,8 @@ def open_read_file(file_name):
             poems = json.load(file)
             return poems
     except FileNotFoundError:
-        print("Something has gone wrong with the file, \
-        please try again")
+        print("Something has gone wrong with the file, " \
+        "please try again")
 
 def title_preview(poem_list):
     if type(poem_list) != list:
@@ -91,7 +90,7 @@ def title_preview(poem_list):
         while i < len(poem_list):
             print(poem_list[i]["title"])
             i += 1
-        title_choice = input("Enter the title of the " 
+        title_choice = input("Enter the title of the " \
             "poem you wish to edit: ")
         menu.check_back_statement(title_choice)
 
@@ -101,8 +100,8 @@ def title_preview(poem_list):
                 return poem
             else:
                 pass
-        input("Sorry the title was incorrect,"  
-        " press enter to try again")
+        input("Sorry the title was incorrect,"  \
+            " press enter to try again")
         os.system("clear")
         
 
@@ -119,7 +118,7 @@ def poem_update(poem_list, updated_poem):
         return poem_list
     except KeyError:
         print("Something has gone wrong with the poem, " \
-         "please try again")
+            "please try again")
 
 def file_update(file_name, updated_poem_list):
     try:
@@ -127,7 +126,7 @@ def file_update(file_name, updated_poem_list):
             json.dump(updated_poem_list, file, indent=4)
     except FileNotFoundError:
         print("Something went wrong with the file name, " \
-         "please try again:")
+            "please try again:")
 
 # opens file and prints out dictionaries to terminal
 def view_file(file_name):
@@ -146,5 +145,5 @@ def file_size(poem_file):
         return poem_file
     else:
         return "Sorry this file does not " \
-        "have enough poems to jumble"
+            "have enough poems to jumble"
 
